@@ -1,3 +1,14 @@
-site_name: My Docs
+site_name: GSoC 2024
 theme:
   name: material
+  palette:
+    primary: black
+repo_url: https://github.com/neurobagel/query-tool-ai
+markdown_extensions:
+  - tables
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Raya679
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/raya-chakravarty/
