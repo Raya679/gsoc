@@ -1,12 +1,11 @@
 # Google Summer of Code 2024
 
-|  |  |
-| --- | --- |
-| Name | [Raya Chakravarty](https://github.com/Raya679)                            |
-| Organisation | [INCF](https://www.incf.org/) |
-| Mentor | [Arman Jahanpour](https://github.com/rmanaem) , [Sebastian Urchs](https://github.com/surchs) , [Alyssa Dai](https://github.com/alyssadai) , [Brent McPherson](mailto:bcmcpher@gmail.com) , [Jean-Baptiste Poline](https://github.com/jbpoline)|
-| Project | [A natural language interface for querying federated research data ](https://summerofcode.withgoogle.com/programs/2024/projects/W7ATppvz) |
-| Link to the project Repository | [Github Repository](https://github.com/neurobagel/query-tool-ai) |
+**Name**        : [Raya Chakravarty](https://github.com/Raya679)  
+**Organisation**: [INCF](https://www.incf.org/)  
+**Mentors**     : [Arman Jahanpour](https://github.com/rmanaem), [Sebastian Urchs](https://github.com/surchs), [Alyssa Dai](https://github.com/alyssadai), [Brent McPherson](mailto:bcmcpher@gmail.com), [Jean-Baptiste Poline](https://github.com/jbpoline)  
+**Project**     : [A natural language interface for querying federated research data](https://summerofcode.withgoogle.com/programs/2024/projects/W7ATppvz)  
+**Link to the project repository**: [Github Repository](https://github.com/neurobagel/query-tool-ai)  
+
 
 ## A natural language interface for querying federated research data 
 
@@ -33,7 +32,8 @@ This project intends to build a chatbot that utilizes existing large language mo
 To have a deeper understanding of the codebase visit [here](https://raya679.github.io/gsoc/codebase/).
 
 ## Contributions
-Below are some of the major pull requests (PRs) that were merged during this period:
+
+A separate [GitHub repository](https://github.com/neurobagel/query-tool-ai) was established for the GSoC project, and all the code  was integrated into the project's main branch. Below are links to the key contributions I made:
 
 - [PR #15: LLM Extractions](https://github.com/neurobagel/query-tool-ai/pull/15)
 - [PR #18: Validations](https://github.com/neurobagel/query-tool-ai/pull/18)
@@ -44,7 +44,7 @@ Below are some of the major pull requests (PRs) that were merged during this per
 
 ## Future Scope 
 - **Complete UI Integration:** Moving forward, a key focus will be on fully integrating the user interface (UI) to provide a seamless and intuitive experience for end-users.
-- **Updates to the LLM Model:** Continuously updating and refining LLM models to enhance output quality and minimize hallucinations.
+- **Updates to the LLM Model:** Continuously updating and refining the LLM model to enhance output quality and minimize hallucinations.
 
 ## Conclusion
 

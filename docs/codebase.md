@@ -11,7 +11,7 @@ The code is divided into three main parts:
   - [Generating the API URL](#generating-the-api-url): Finally, this section creates the final API URL that needs to be called, using the processed information.
 
 The project's workflow process was as follows:
-![image](https://github.com/user-attachments/assets/24b9fee8-be43-467d-b01d-eb25a49555b8)
+![image](https://github.com/user-attachments/assets/a3ab306d-b09b-448d-9749-0b0a024dde97)
 
 
 ## Extracting Information 
@@ -34,7 +34,7 @@ This code defines a Python script that extracts specific information from user q
      - However, even with `mistral`, some hallucinations were observed, which required careful handling and validation to ensure accurate outputs.
      - Later, experimentation was extended to include closed source models like `openai/chatgpt-4o-latest`. This model demonstrated significantly better results, with almost no hallucinations, making it a superior choice for ensuring the accuracy and reliability of the extracted information.
 
-     To have a deeper understanding of the model selection process visit [here](https://raya679.github.io/gsoc/models/).
+     To understand the model selection process in detail visit [here](https://raya679.github.io/gsoc/models/).
 
 
 
@@ -73,6 +73,15 @@ This component constructs the final API URL using the processed information:
 - Construct API URL:
 
     - The base API URL is combined with the constructed parameters to form the full API URL. If unsupported terms are found, the function returns an error message instead of the URL.
+
+
+## Dockerization and FastAPI Integration
+
+As the Neurobagel query tool AI was a standalone tool,the next phase was to integrate an API and containerize the tool. 
+I set up the API entrypoint using FastAPI, and since the extraction of infromation from the user query is handled by Ollama's LLMs, I built upon the Docker image provided by Ollama to extend its functionality.
+
+
+Additionally, I created detailed documentation covering various setup options for the tool, including both local and Dockerized versions. The documentation includes instructions for accessing the tool through  command-line guidance for server configurations.
 
 
 
