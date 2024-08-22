@@ -1,10 +1,10 @@
-# Model selection
+# Model Selection Process
 
 In the process of extracting the information from user queries, several LLMs were tested and evaluated. The goal was to identify a model that could accurately extract all necessary parameters without introducing hallucinations or errors. 
 
-Below is a summary of the models tested and their performance in this context.
+## Tested Models
 
-## [google/flan-t5-xxl](https://huggingface.co/google/flan-t5-xxl)
+### [google/flan-t5-xxl](https://huggingface.co/google/flan-t5-xxl)
 
 The `google/flan-t5-xxl model`, a large-scale Transformer model fine-tuned on various NLP tasks, was one of the initial models tested for extracting parameters from user queries. Known for its versatility in handling complex language tasks, this model was integrated into the project using the `Hugging Face Hub`. 
 
@@ -32,7 +32,7 @@ The `google/flan-t5-xxl model`, a large-scale Transformer model fine-tuned on va
     **Issue**: While this approach reduced the likelihood of hallucinations, it introduced other challenges. The `google/flan-t5-xxl model` has a rate limit when accessed via the Hugging Face Hub, which constrained the speed and scalability of this approach. 
     Additionally, the model struggled with categorical values such as `diagnosis`, `assessment tool`, `health-control`, and `image-modality`, where its accuracy was inconsistent.
      
-## [llama-2](https://ollama.com/library/llama2:chat) 
+### [llama-2](https://ollama.com/library/llama2:chat) 
 `Llama-2` is an advanced language model known for its large size and ability to handle complex language tasks. Despite these capabilities, its performance in this specific context was found to be lacking in accuracy. The model was integrated using the `ChatOllama` framework, and its performance was evaluated on the task of extracting structured information from user queries.
 
 **Performance overview** 
@@ -44,7 +44,7 @@ Despite the high expectations due to its size and architecture, Llama-2 struggle
 
    **Issue**: The model failed to accurately extract some of the key elements of the query, leading to incorrect or incomplete responses. This lack of precision made it unsuitable for the specific needs of this project, where accuracy in parameter extraction is crucial.
      
-## [gemma](https://ollama.com/library/gemma) 
+### [gemma](https://ollama.com/library/gemma) 
 The `gemma` model is a large language model designed for natural language processing tasks. It aims to improve upon previous models like `llama-2` by offering enhanced performance in tasks such as text generation, information extraction, and question answering.The model was implemented using the `ChatOllama` framework and tested on queries requiring the extraction of structured data.
 
 **Performance overview** 
@@ -62,7 +62,7 @@ Compared to `llama-2`, `gemma` demonstrated better accuracy in extracting inform
 
 Despite its better performance in some areas, the inconsistency in handling specific queries made it unreliable for scenarios where accuracy is critical.
 
-## [mistral](https://ollama.com/library/mistral)
+### [mistral](https://ollama.com/library/mistral)
 
 The` mistral` LLM is a state-of-the-art language model developed by Ollama, known for its impressive capabilities in natural language understanding and generation. It is designed to handle a wide range of language tasks, including text generation, comprehension, and contextual understanding.The model was implemented using the `ChatOllama` framework and tested on queries requiring the extraction of structured data.
     
@@ -97,5 +97,12 @@ To address the challenges experienced with open-source models, experimentation w
 - Examples of `openai/chatgpt-4o-latest` giving accurate answers to the same questions.
 ![Screenshot from 2024-08-16 10-59-53](https://github.com/user-attachments/assets/c87b743f-82b6-41ff-a534-6b0100b15cf1)
 
-## Summary
+### Summary
 While open-source models like `mistral` offer valuable benefits, they can exhibit limitations such as handling specific parameter nuances. Closed-source models, such as `openai/chatgpt-4o-latest`, often provide enhanced accuracy and reliability, making them a preferable choice for applications where precision is critical.
+
+## GPU Utilization
+In the process of implementing and testing various language models for the extraction of parameters from user queries, GPU utilization played a crucial role in optimizing performance and ensuring efficient execution.
+
+For the testing of both open-source and closed-source models, **NVIDIA GPUs** were utilized to accelerate the inference process, which is often resource-intensive due to the large-scale nature of these models.
+
+The GPU setup was deployed on a virtual machine, provided by Neurobagel, which supported high-performance computing with NVIDIA GPUs. The virtual machine allowed seamless integration with the testing pipeline, enabling quick switching between different models, including `google/flan-t5-xxl`, `llama-2`, `gemma`, `mistral`, and `openai/chatgpt-4o-latest`. By utilizing NVIDIA's CUDA cores, the models were able to perform complex computations with significantly reduced latency compared to running on a CPU.

@@ -1,6 +1,6 @@
 # Details of the codebase
 
-## Overview 
+## Core Logic 
 
 The code is divided into three main parts:
 
@@ -14,7 +14,7 @@ The project's workflow process was as follows:
 ![image](https://github.com/user-attachments/assets/a3ab306d-b09b-448d-9749-0b0a024dde97)
 
 
-## Extracting Information 
+### Extracting Information 
 
 This code defines a Python script that extracts specific information from user queries using a natural language processing model. Here's a brief description of its functionality:
 
@@ -39,7 +39,7 @@ This code defines a Python script that extracts specific information from user q
 
 
 
-## Mapping to Term URLs
+### Mapping to Term URLs
 
 - Functionality:
 
@@ -51,7 +51,7 @@ This code defines a Python script that extracts specific information from user q
     - The mappings are stored in predefined dictionaries or other structures, enabling quick lookup and conversion of extracted terms into their corresponding TermURLs.
 
 
-## Generating the API URL
+### Generating the API URL
 This component constructs the final API URL using the processed information:
 
 - Extract Information:
@@ -74,11 +74,30 @@ This component constructs the final API URL using the processed information:
 
     - The base API URL is combined with the constructed parameters to form the full API URL. If unsupported terms are found, the function returns an error message instead of the URL.
 
+## Pytest Testing
+- During the development of the Neurobagel query tool AI, we focused on ensuring the application’s reliability and accuracy through comprehensive testing.
+- We utilized [Pytest](https://docs.pytest.org/en/stable/) to verify various components, including API interaction, data extraction, and validation functions.
 
-## Dockerization and FastAPI Integration
+## Dockerization
+- In the next phase of the Neurobagel query tool AI project, I focused on containerizing the tool to improve deployment and scalability. 
+- I used Docker to create a portable environment, starting with a base image from Ollama that included their LLM infrastructure. 
+- An `entrypoint.sh` script was created to define the startup commands for the container. This approach ensures consistent deployment and simplifies scaling across different systems.
 
-As the Neurobagel query tool AI was a standalone tool,the next phase was to integrate an API and containerize the tool. 
-I set up the API entrypoint using FastAPI, and since the extraction of infromation from the user query is handled by Ollama's LLMs, I built upon the Docker image provided by Ollama to extend its functionality.
+## FastAPI Integration
+- To integrate an API into the Neurobagel query tool AI, I used [FastAPI](https://fastapi.tiangolo.com/) to define endpoints and handle requests.
+- I created routes to process user queries and interact with Ollama’s LLMs, ensuring efficient communication between the API and the LLMs. 
+- The API was configured to manage responses from the LLMs and was tested to confirm accurate results and reliable performance across different query types.
+
+## Continuous Integration 
+- I had also implemented a Continuous Integration (CI) workflow for our GitHub repository that automates testing, linting, and spell-checking. 
+- This setup includes running tests and generating coverage reports, enforcing code style with linting tools, and checking for spelling errors. 
+- By automating these processes, we ensure that code quality is maintained, errors are detected early, and our codebase remains reliable and consistent.
+
+## UI Development and Integration
+- The final step of the project was the UI development and integration, where the chatbot interface was incorporated into the [React](https://react.dev/) application. 
+- Using [react-simple-chatbot](https://www.npmjs.com/package/react-simple-chatbot) and [styled-components](https://www.npmjs.com/package/styled-components), I created a responsive and interactive chatbot feature. 
+- The chatbot allows users to input queries, which are processed through a custom FetchAnswer component that communicates with a local API to retrieve and display results. 
+- The UI also includes a toggle button for showing and hiding the chatbot, which is made draggable for user convenience. Custom themes and styles were applied to ensure a consistent and user-friendly experience.
 
 
 Additionally, I created detailed documentation covering various setup options for the tool, including both local and Dockerized versions. The documentation includes instructions for accessing the tool through  command-line guidance for server configurations.
