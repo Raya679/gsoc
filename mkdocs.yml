@@ -1,12 +1,16 @@
 site_name: GSoC 2024
 theme:
   name: material
+  features:
+    - navigation.footer
   palette:
     primary: black
 repo_url: https://github.com/neurobagel/query-tool-ai
 markdown_extensions:
   - tables
+plugins: []
 extra:
+  generator: false
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/Raya679
