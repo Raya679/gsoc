@@ -1,10 +1,34 @@
 # Google Summer of Code 2024
 
-**Name**        : [Raya Chakravarty](https://github.com/Raya679)  
-**Organisation**: [INCF](https://www.incf.org/)  
-**Mentors**     : [Arman Jahanpour](https://github.com/rmanaem), [Sebastian Urchs](https://github.com/surchs), [Alyssa Dai](https://github.com/alyssadai), [Brent McPherson](mailto:bcmcpher@gmail.com), [Jean-Baptiste Poline](https://github.com/jbpoline)  
-**Project**     : [A natural language interface for querying federated research data](https://summerofcode.withgoogle.com/programs/2024/projects/W7ATppvz)  
-**Link to the project repository**: [Github Repository](https://github.com/neurobagel/query-tool-ai)  
+<table style="font-size:0.95em; width:100%; border:none;">
+    <tr>
+        <td style="width:30%;"><strong>Name</strong></td>
+        <td><a href="https://github.com/Raya679">Raya Chakravarty</a></td>
+    </tr>
+    <tr>
+        <td><strong>Organisation</strong></td>
+        <td><a href="https://www.incf.org/">INCF</a></td>
+    </tr>
+    <tr>
+        <td><strong>Mentors</strong></td>
+        <td>
+            <a href="https://github.com/rmanaem">Arman Jahanpour</a>, 
+            <a href="https://github.com/surchs">Sebastian Urchs</a>, 
+            <a href="https://github.com/alyssadai">Alyssa Dai</a>, 
+            <a href="mailto:bcmcpher@gmail.com">Brent McPherson</a>, 
+            <a href="https://github.com/jbpoline">Jean-Baptiste Poline</a>
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Project</strong></td>
+        <td><a href="https://summerofcode.withgoogle.com/programs/2024/projects/W7ATppvz">A natural language interface for querying federated research data</a></td>
+    </tr>
+    <tr>
+        <td><strong>Link to the project repository</strong></td>
+        <td><a href="https://github.com/neurobagel/query-tool-ai">Github Repository</a></td>
+    </tr>
+</table>
+
 
 
 ## A natural language interface for querying federated research data 
@@ -33,7 +57,6 @@ A separate github repository [query-tool-ai](https://github.com/neurobagel/query
 
 
 ## Future Scope 
-- **Complete UI Integration:** Moving forward, a key focus will be on fully integrating the user interface (UI) to provide a seamless and intuitive experience for end-users.
 - **Updates to the LLM Model:** Continuously updating and refining the LLM model to enhance output quality and minimize hallucinations.
 
 ## Conclusion
