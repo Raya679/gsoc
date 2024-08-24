@@ -78,6 +78,11 @@ This component constructs the final API URL using the processed information:
 - During the development of the Neurobagel query tool AI, we focused on ensuring the application’s reliability and accuracy through comprehensive testing.
 - We utilized [Pytest](https://docs.pytest.org/en/stable/) to verify various components, including API interaction, data extraction, and validation functions.
 
+## Continuous Integration 
+- I had also implemented a Continuous Integration (CI) workflow for our GitHub repository that automates testing, linting, and spell-checking. 
+- This setup includes running tests and generating coverage reports, enforcing code style with linting tools, and checking for spelling errors. 
+- By automating these processes, we ensure that code quality is maintained, errors are detected early, and our codebase remains reliable and consistent.
+
 ## Dockerization
 - In the next phase of the Neurobagel query tool AI project, I focused on containerizing the tool to improve deployment and scalability. 
 - I used Docker to create a portable environment, starting with a base image from Ollama that included their LLM infrastructure. 
@@ -87,11 +92,6 @@ This component constructs the final API URL using the processed information:
 - To integrate an API into the Neurobagel query tool AI, I used [FastAPI](https://fastapi.tiangolo.com/) to define endpoints and handle requests.
 - I created routes to process user queries and interact with Ollama’s LLMs, ensuring efficient communication between the API and the LLMs. 
 - The API was configured to manage responses from the LLMs and was tested to confirm accurate results and reliable performance across different query types.
-
-## Continuous Integration 
-- I had also implemented a Continuous Integration (CI) workflow for our GitHub repository that automates testing, linting, and spell-checking. 
-- This setup includes running tests and generating coverage reports, enforcing code style with linting tools, and checking for spelling errors. 
-- By automating these processes, we ensure that code quality is maintained, errors are detected early, and our codebase remains reliable and consistent.
 
 ## UI Development and Integration
 - The final step of the project was the UI development and integration, where the chatbot interface was incorporated into the [React](https://react.dev/) application. 

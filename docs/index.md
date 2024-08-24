@@ -15,32 +15,22 @@ Currently, Neurobagel offers a graphical web query interface that interacts with
 
 This project intends to build a chatbot that utilizes existing large language models (LLMs) to parse text provided by users into precise queries and reliably summarize the results for them. The chatbot should be able to receive and comprehend user prompts in natural language, initiate corresponding API calls using predefined Neurobagel parameters (like minimum age, maximum age, sex, etc.), interpret the results, and communicate that information back to the user. The goal is to choose open tools and models to allow for flexible hosting options.
 
-
-<div style="text-align: center;">
-  <a href="https://github.com/neurobagel/query-tool-ai" style="
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #ffffff;
-    background-color: #000000;
-    text-decoration: none;
-    border-radius: 5px;
-  ">Git Repsitory</a>
-</div>
-
 ## Understanding the codebase
 To have a deeper understanding of the codebase visit [here](https://raya679.github.io/gsoc/codebase/).
 
 ## Contributions
 
-A separate [GitHub repository](https://github.com/neurobagel/query-tool-ai) was established for the GSoC project, and all the code  was integrated into the project's main branch. Below are links to the key contributions I made:
+A separate github repository [query-tool-ai](https://github.com/neurobagel/query-tool-ai) was established for the GSoC project, and all the code  was integrated into the project's main branch. Below are links to the key contributions I made:
 
-- [PR #15: LLM Extractions](https://github.com/neurobagel/query-tool-ai/pull/15)
-- [PR #18: Validations](https://github.com/neurobagel/query-tool-ai/pull/18)
-- [PR #20: Mapping to Term URLs](https://github.com/neurobagel/query-tool-ai/pull/20)
-- [PR #24: Generating API URL](https://github.com/neurobagel/query-tool-ai/pull/24)
-- [PR #28: Dockerization of the query-tool-ai code](https://github.com/neurobagel/query-tool-ai/pull/28)
-- [PR #31: FastAPI integration](https://github.com/neurobagel/query-tool-ai/pull/31)
+- [LLM Extractions](https://github.com/neurobagel/query-tool-ai/pull/15)
+- [Validations](https://github.com/neurobagel/query-tool-ai/pull/18)
+- [Mapping to Term URLs](https://github.com/neurobagel/query-tool-ai/pull/20)
+- [Set up continuous integration workflows](https://github.com/neurobagel/query-tool-ai/pull/22)
+- [Added codespell to github action workflow](https://github.com/neurobagel/query-tool-ai/pull/34)
+- [Generating API URL](https://github.com/neurobagel/query-tool-ai/pull/24)
+- [Dockerization of the query-tool-ai code](https://github.com/neurobagel/query-tool-ai/pull/28)
+- [FastAPI integration](https://github.com/neurobagel/query-tool-ai/pull/31)
+
 
 ## Future Scope 
 - **Complete UI Integration:** Moving forward, a key focus will be on fully integrating the user interface (UI) to provide a seamless and intuitive experience for end-users.
