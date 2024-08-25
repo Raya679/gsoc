@@ -40,7 +40,18 @@ Currently, Neurobagel offers a graphical web query interface that interacts with
 This project intends to build a chatbot that utilizes existing large language models (LLMs) to parse text provided by users into precise queries and reliably summarize the results for them. The chatbot should be able to receive and comprehend user prompts in natural language, initiate corresponding API calls using predefined Neurobagel parameters (like minimum age, maximum age, sex, etc.), interpret the results, and communicate that information back to the user. The goal is to choose open tools and models to allow for flexible hosting options.
 
 ## Understanding the codebase
-To have a deeper understanding of the codebase visit [here](https://raya679.github.io/gsoc/codebase/).
+
+The Neurobagel query tool AI codebase consists of three main parts: 
+
+   - extracting information from user queries using LLMs
+   - mapping extracted terms to TermURLs
+   - generating the final API URL. 
+   
+The project incorporates **Pytest** for testing, **Continuous Integration** for automating testing and linting, and **Dockerization** for deployment scalability. <br>
+A **FastAPI** server handles API requests, and a **React-based** chatbot interface enables users to input queries, which are processed via the API.<br>
+The project includes **comprehensive documentation** for both local and Dockerized setup options.
+
+To have a deeper understanding of the codebase visit [**here**](https://raya679.github.io/gsoc/codebase/).
 
 ## Contributions
 
