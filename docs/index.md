@@ -65,6 +65,7 @@ A separate github repository [query-tool-ai](https://github.com/neurobagel/query
 - [Generating API URL](https://github.com/neurobagel/query-tool-ai/pull/24)
 - [Dockerization of the query-tool-ai code](https://github.com/neurobagel/query-tool-ai/pull/28)
 - [FastAPI integration](https://github.com/neurobagel/query-tool-ai/pull/31)
+- [Query tool ai UI integration](https://github.com/neurobagel/query-tool/pull/261)
 
 
 ## Future Scope 
