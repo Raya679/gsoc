@@ -41,15 +41,13 @@ This project intends to build a chatbot that utilizes existing large language mo
 
 ## Understanding the codebase
 
-The Neurobagel query tool AI codebase consists of three main parts: 
-
-   - extracting information from user queries using LLMs
-   - mapping extracted terms to TermURLs
-   - generating the final API URL. 
-   
-The project incorporates **Pytest** for testing, **Continuous Integration** for automating testing and linting, and **Dockerization** for deployment scalability. <br>
-A **FastAPI** server handles API requests, and a **React-based** chatbot interface enables users to input queries, which are processed via the API.<br>
-The project includes **comprehensive documentation** for both local and Dockerized setup options.
+- The Neurobagel query tool AI codebase consists of three main parts: 
+      - extracting information from user queries using LLMs
+      - mapping extracted terms to TermURLs
+      - generating the final API URL. 
+- The project incorporates **Pytest** for testing, **Continuous Integration** for automating testing and linting, and **Dockerization** for deployment scalability. <br>
+- A **FastAPI** server handles API requests, and a **React-based** chatbot interface enables users to input queries, which are processed via the API.<br>
+- The project includes **comprehensive documentation** for both local and Dockerized setup options.
 
 To have a deeper understanding of the codebase visit [**here**](https://raya679.github.io/gsoc/codebase/).
 
