@@ -1,0 +1,590 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../codebase/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.35">
+    
+    
+      
+        <title>Model Selection Process - GSoC 2024</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#model-selection-process" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="GSoC 2024" class="md-header__button md-logo" aria-label="GSoC 2024" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GSoC 2024
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Model Selection Process
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/neurobagel/query-tool-ai" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GSoC 2024" class="md-nav__button md-logo" aria-label="GSoC 2024" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    GSoC 2024
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/neurobagel/query-tool-ai" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Summer of Code 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codebase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Details of the codebase
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Model Selection Process
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Model Selection Process
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tested-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tested Models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tested Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#googleflan-t5-xxl" class="md-nav__link">
+    <span class="md-ellipsis">
+      google/flan-t5-xxl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llama-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      llama-2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gemma" class="md-nav__link">
+    <span class="md-ellipsis">
+      gemma
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistral" class="md-nav__link">
+    <span class="md-ellipsis">
+      mistral
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-source-vs-closed-source-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open-source vs closed source models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open-source vs closed source models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-source-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open-Source Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closed-source-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closed-Source Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpu-utilization" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPU Utilization
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="model-selection-process">Model Selection Process</h1>
+<p>In the process of extracting the information from user queries, several LLMs were tested and evaluated. The goal was to identify a model that could accurately extract all necessary parameters without introducing hallucinations or errors. </p>
+<h2 id="tested-models">Tested Models</h2>
+<h3 id="googleflan-t5-xxl"><a href="https://huggingface.co/google/flan-t5-xxl">google/flan-t5-xxl</a></h3>
+<p>The <code>google/flan-t5-xxl model</code>, a large-scale Transformer model fine-tuned on various NLP tasks, was one of the initial models tested for extracting parameters from user queries. Known for its versatility in handling complex language tasks, this model was integrated into the project using the <code>Hugging Face Hub</code>. </p>
+<p><strong>Performance overview</strong> </p>
+<ol>
+<li>
+<p><strong>Extracting all parameters together</strong> </p>
+<p>prompt: How many female subjects older than 50 with a Parkinson’s diagnosis?</p>
+<p><img alt="image" src="https://github.com/Raya679/Healthcare-Chatbot/assets/113240231/e7ae683f-60f9-4696-b91e-d979f6a9d85e" /></p>
+<p><strong>Issue</strong> - While the model performed well in terms of fluency and coherence, it exhibited a significant flaw: it introduced assumptions not present in the original query. For example, it added values like <code>imaging_sessions</code> and <code>phenotypic_sessions</code>, which were not mentioned by the user.</p>
+</li>
+<li>
+<p><strong>Extracting values one by one</strong></p>
+<p>To address the issue of assumptions, a strategy was employed where each parameter was extracted individually using separate scripts:</p>
+<ul>
+<li>extract_age.py 
+  <img alt="image" src="https://github.com/Raya679/Healthcare-Chatbot/assets/113240231/a6fd1306-3889-4a6a-99d3-760e54eae5b9" /></li>
+<li>extract_sex.py
+  <img alt="image" src="https://github.com/Raya679/Healthcare-Chatbot/assets/113240231/3aff87fd-f6a1-4a7e-b2be-0f3448ebd950" /></li>
+<li>extract_sessions
+   <img alt="image" src="https://github.com/Raya679/Healthcare-Chatbot/assets/113240231/a0505380-eeeb-4cfe-8442-93462a63d078" /></li>
+</ul>
+<p><strong>Issue</strong>: While this approach reduced the likelihood of hallucinations, it introduced other challenges. The <code>google/flan-t5-xxl model</code> has a rate limit when accessed via the Hugging Face Hub, which constrained the speed and scalability of this approach. 
+Additionally, the model struggled with categorical values such as <code>diagnosis</code>, <code>assessment tool</code>, <code>health-control</code>, and <code>image-modality</code>, where its accuracy was inconsistent.</p>
+</li>
+</ol>
+<h3 id="llama-2"><a href="https://ollama.com/library/llama2:chat">llama-2</a></h3>
+<p><code>Llama-2</code> is an advanced language model known for its large size and ability to handle complex language tasks. Despite these capabilities, its performance in this specific context was found to be lacking in accuracy. The model was integrated using the <code>ChatOllama</code> framework, and its performance was evaluated on the task of extracting structured information from user queries.</p>
+<p><strong>Performance overview</strong> </p>
+<p>Despite the high expectations due to its size and architecture, Llama-2 struggled to deliver accurate results for this task. The model often provided outputs that were either incomplete or contained errors, particularly when extracting detailed parameters from complex queries</p>
+<p><strong>Example of LLM Response -</strong><br />
+<img alt="image" src="https://github.com/Raya679/Healthcare-Chatbot/assets/113240231/2026f9fe-2de6-4381-b944-ea9d3447b97f" /></p>
+<p><strong>Issue</strong>: The model failed to accurately extract some of the key elements of the query, leading to incorrect or incomplete responses. This lack of precision made it unsuitable for the specific needs of this project, where accuracy in parameter extraction is crucial.</p>
+<h3 id="gemma"><a href="https://ollama.com/library/gemma">gemma</a></h3>
+<p>The <code>gemma</code> model is a large language model designed for natural language processing tasks. It aims to improve upon previous models like <code>llama-2</code> by offering enhanced performance in tasks such as text generation, information extraction, and question answering.The model was implemented using the <code>ChatOllama</code> framework and tested on queries requiring the extraction of structured data.</p>
+<p><strong>Performance overview</strong> </p>
+<p>Compared to <code>llama-2</code>, <code>gemma</code> demonstrated better accuracy in extracting information from user queries. However, it still struggled with hallucinations, where the model would generate information not present in the original query or misinterpret the provided data. </p>
+<p><strong>Example of LLM Response -</strong> 
+    <img alt="image" src="https://github.com/Raya679/Healthcare-Chatbot/assets/113240231/9ea0108e-7103-4c00-a963-9eb4c49b8d37" />
+    <img alt="image" src="https://github.com/Raya679/Healthcare-Chatbot/assets/113240231/f8bea6d3-8f26-43a5-93ed-03cc63b5855a" />
+    <img alt="image" src="https://github.com/Raya679/Healthcare-Chatbot/assets/113240231/1f31e7b0-8492-4aef-ab6a-fa3153a877f9" />
+    <img alt="image" src="https://github.com/Raya679/Healthcare-Chatbot/assets/113240231/dc8de042-29f9-4d6d-a71b-9b1580be63b4" />
+    <img alt="image" src="https://github.com/Raya679/Healthcare-Chatbot/assets/113240231/07d8f0be-5ec7-439e-8ac5-8337ddda5400" /></p>
+<p><strong>Issue</strong>: While the <code>gemma</code> LLM showed improvements over <code>llama-2</code> in extracting relevant information, it still struggled with hallucinations. The model occasionally generated incorrect or irrelevant details that were not part of the original query. These hallucinations, though less frequent, could lead to misleading or inaccurate outputs, especially in cases requiring precise categorical information like diagnosis, assessment tools, or imaging modalities.</p>
+<p>Despite its better performance in some areas, the inconsistency in handling specific queries made it unreliable for scenarios where accuracy is critical.</p>
+<h3 id="mistral"><a href="https://ollama.com/library/mistral">mistral</a></h3>
+<p>The<code>mistral</code> LLM is a state-of-the-art language model developed by Ollama, known for its impressive capabilities in natural language understanding and generation. It is designed to handle a wide range of language tasks, including text generation, comprehension, and contextual understanding.The model was implemented using the <code>ChatOllama</code> framework and tested on queries requiring the extraction of structured data.</p>
+<p><strong>Performance overview</strong> </p>
+<ul>
+<li><code>mistral</code> excelled in accurately extracting parameters like age, sex, and diagnosis from user queries, making it ideal for detailed information extraction.</li>
+<li>It showed fewer hallucinations compared to models like <code>llama-2</code> and <code>gemma</code>, providing more reliable outputs by avoiding the generation of irrelevant data</li>
+<li><code>mistral</code> effectively integrated with structured data models like Pydantic, allowing for seamless mapping of extracted information to predefined schemas.</li>
+</ul>
+<p><strong>Examples of LLM Response</strong> -
+    <img alt="image" src="https://github.com/Raya679/Healthcare-Chatbot/assets/113240231/5be2f93a-16cc-4759-a830-83f79fc28d44" /></p>
+<h2 id="open-source-vs-closed-source-models">Open-source vs closed source models</h2>
+<h3 id="open-source-models">Open-Source Models</h3>
+<p>Open-source models, such as <code>mistral</code>, offer the advantage of accessibility and customization, allowing users to modify and integrate them into various applications. These models provide significant benefits in terms of transparency and flexibility. However, they are not without limitations.</p>
+<p>In the case of <code>mistral</code>, an open-source model, there were notable issues with handling certain parameter extractions. For instance, it occasionally struggled with identifying and interpreting vague age ranges such as "above 40" or "below 60." </p>
+<h3 id="closed-source-models">Closed-Source Models</h3>
+<p>Closed-source models, while less customizable, often come with robust support and fine-tuning specific to accuracy and performance. They are typically developed with extensive resources and advanced techniques that address various limitations seen in open-source alternatives.</p>
+<p>To address the challenges experienced with open-source models, experimentation was extended to closed-source options such as <code>openai/chatgpt-4o-latest</code>. This model demonstrated superior performance in extracting information with almost no hallucinations. It effectively handled ambiguous queries and accurately interpreted parameters like age ranges, providing reliable and precise outputs.</p>
+<h3 id="examples">Examples</h3>
+<ul>
+<li>
+<p>Examples of <code>mistral</code> unable to identify context of age.
+<img alt="Screenshot from 2024-08-16 11-03-02" src="https://github.com/user-attachments/assets/37dca154-13f2-4249-b4ba-6953cb28debc" /></p>
+</li>
+<li>
+<p>Examples of <code>openai/chatgpt-4o-latest</code> giving accurate answers to the same questions.
+<img alt="Screenshot from 2024-08-16 10-59-53" src="https://github.com/user-attachments/assets/c87b743f-82b6-41ff-a534-6b0100b15cf1" /></p>
+</li>
+</ul>
+<h3 id="summary">Summary</h3>
+<p>While open-source models like <code>mistral</code> offer valuable benefits, they can exhibit limitations such as handling specific parameter nuances. Closed-source models, such as <code>openai/chatgpt-4o-latest</code>, often provide enhanced accuracy and reliability, making them a preferable choice for applications where precision is critical.</p>
+<h2 id="gpu-utilization">GPU Utilization</h2>
+<p>In the process of implementing and testing various language models for the extraction of parameters from user queries, GPU utilization played a crucial role in optimizing performance and ensuring efficient execution.</p>
+<p>For the testing of both open-source and closed-source models, <strong>NVIDIA GPUs</strong> were utilized to accelerate the inference process, which is often resource-intensive due to the large-scale nature of these models.</p>
+<p>The GPU setup was deployed on a virtual machine, provided by Neurobagel, which supported high-performance computing with NVIDIA GPUs. The virtual machine allowed seamless integration with the testing pipeline, enabling quick switching between different models, including <code>google/flan-t5-xxl</code>, <code>llama-2</code>, <code>gemma</code>, <code>mistral</code>, and <code>openai/chatgpt-4o-latest</code>. By utilizing NVIDIA's CUDA cores, the models were able to perform complex computations with significantly reduced latency compared to running on a CPU.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../codebase/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Details of the codebase">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Details of the codebase
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Raya679" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/raya-chakravarty/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "navigation.footer"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  </body>
+</html>
